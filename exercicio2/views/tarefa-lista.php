@@ -18,16 +18,16 @@
 <body>
     <h1>Lista de Tarefas</h1>
     <ul>
-        <?php foreach ($listaTarefas as $tarefa):?>
-            <li class="<?php echo $tarefa['concluida'] ? 'concluida': 'pendente'; ?>">
-                <?php echo $tarefa['nome'];?>
-                (<?php echo $tarefa['concluida'] ? 'Feito' : 'Pendente'; ?>)
+        <?php foreach ($listaTarefas as $tarefa): ?>
+            <li class="<?php echo $tarefa['concluida'] ? 'concluida' : 'pendente'; ?>">
+                <?php echo htmlspecialchars($tarefa['nome']); ?>
+                <strong>(<?php echo $tarefa['concluida'] ? 'Feito' : 'Pendente'; ?>)</strong>
             </li>
         <?php endforeach; ?>
     </ul>
 
     <hr>
-    <h3> Nova Tarefa</h3>
+    <h3>Nova Tarefa</h3>
     <form action="index.php?acao=salvar" method="POST">
         <input type="text" name="nome_tarefa" placeholder="Digite a tarefa..." required>
         <button type="submit">Adicionar</button>

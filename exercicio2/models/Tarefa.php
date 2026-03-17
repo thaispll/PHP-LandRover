@@ -18,7 +18,10 @@ class Tarefa {
         return $_SESSION['tarefas'];
     }
     public static function salvarTarefa($nome){
-        $_SESSION['tarefas'][] = ['nome' => $nome, 'concluida' =>false];
+        $_SESSION['tarefas'][] = [
+            'nome' => $nome, 
+            'concluida' =>false
+        ];
         return true;
     }
 }

@@ -1,14 +1,13 @@
-<?php 
-    require_once 'controllers/TarefaController.php';
+<?php
+require_once 'controllers/TarefaController.php';
 
-    $controller = new TarefaController();
+$controller = new TarefaController();
 
-    //roteamento: se a URL tiver ?acao=salvar, ele cria. Senão, apenas lista.
-    $acao = $_GET['acao'] ?? 'listar';
+// Verifica se existe uma ação na URL, caso contrário, a ação padrão é 'listar'
+$acao = $_GET['acao'] ?? 'listar';
 
-    if($acao == 'salvar' && $_SERVER['REQUEST_METHOD'] == 'POST'){
-        $controller ->salvarTarefa(); 
-    } else {
-        $controller->exibirTarefas();
-    }
-?>
+if ($acao === 'salvar' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    $controller->salvarTarefa();
+} else {
+    $controller->exibirTarefas();
+}

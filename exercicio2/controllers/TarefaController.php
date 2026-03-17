@@ -11,7 +11,7 @@ class TarefaController {
     }
 
     public function salvarTarefa(){
-        if (isset($_POST['nome_tarefa'])){
+        if (isset($_POST['nome_tarefa']) && !empty(trim($_POST['nome_tarefa']))){
             $nome = $_POST['nome_tarefa'];
 
             //avisar ao model para salvar
